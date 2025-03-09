@@ -16,7 +16,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'WDD',
@@ -29,7 +29,7 @@ const courses = [
             'HTML',
             'CSS'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -41,7 +41,7 @@ const courses = [
         technology: [
             'Python'
         ],
-        completed: false
+        completed: true
     },
     {
         subject: 'CSE',
@@ -84,3 +84,63 @@ const courses = [
         completed: false
     }
 ]
+
+
+// Function to display courses and update total credits
+function displayCourses(filterSubject) {
+    let filteredCourses;
+
+  // For "All", display all courses; for specific subjects, filter by subject only
+    if (filterSubject === 'All') {
+        filteredCourses = courses;
+    } else {
+        filteredCourses = courses.filter(course => course.subject === filterSubject);
+}
+
+  // Get the container element for course buttons
+    const container = document.querySelector('.bottom-btn-container');
+    container.innerHTML = ''; // Clear previous content
+
+  // Create a course button for each course in the filtered list
+    filteredCourses.forEach(course => {
+    const courseBtn = document.createElement('a');
+    courseBtn.href = "#"; // Replace with actual link if needed
+    courseBtn.classList.add(course.subject.toLowerCase());
+    
+    // Add "completed" class only if the course is completed
+    if (course.completed) {
+        courseBtn.classList.add('completed');
+    }
+    
+    courseBtn.textContent = `${course.subject} ${course.number}`;
+    container.appendChild(courseBtn);
+});
+
+  // Calculate total credits for courses that are completed
+    const totalCredits = filteredCourses.reduce((sum, course) => {
+    return course.completed ? sum + course.credits : sum;
+}, 0);
+
+  // Create and append a span element to display total credits
+    const creditsSpan = document.createElement('span');
+    creditsSpan.className = 'credits';
+    creditsSpan.textContent = `Total Credits: ${totalCredits}`;
+    container.appendChild(creditsSpan);
+}
+
+// Attach event listeners to filter buttons
+document.getElementById('btnAll').addEventListener('click', function(e) {
+    e.preventDefault();
+    displayCourses('All');
+});
+document.getElementById('btnCSE').addEventListener('click', function(e) {
+    e.preventDefault();
+    displayCourses('CSE');
+});
+document.getElementById('btnWDD').addEventListener('click', function(e) {
+    e.preventDefault();
+    displayCourses('WDD');
+});
+
+// Display all courses on initial load
+displayCourses('All');

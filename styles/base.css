@@ -401,3 +401,10 @@ footer{
         left: 0;
     }
 }
+
+
+/* Style for completed courses */
+.bottom-btn-container a.completed {
+    background-color: var(--secondary-color); 
+    color: #fff;
+}
