@@ -400,6 +400,13 @@ footer{
     .nav-list.active {
         left: 0;
     }
+
+    .site-title {
+
+        position: absolute;
+        top: 180px !important; 
+        left: 50% !important;
+    }
 }
 
 
@@ -407,4 +414,16 @@ footer{
 .bottom-btn-container a.completed {
     background-color: var(--secondary-color); 
     color: #fff;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: 45px; /* Adjust as needed */
+    left: 62%;
+    transform: translateX(-50%);
+    width: 100%;
+    color: var(--primary-color);
 }
