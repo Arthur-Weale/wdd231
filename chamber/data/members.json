@@ -1,0 +1,80 @@
+[
+    {
+      "name": "EcoSolutions Ltd",
+      "address": "123 Greenway Ave, Cape Town, SA",
+      "phone": "+27 21 555 1234",
+      "website": "https://www.ecosolutions.co.za",
+      "image": "ecosolutions.png",
+      "membership_level": 3,
+      "industry": "Environmental Consulting",
+      "established": 2005,
+      "tagline": "Sustainable Solutions for a Greener Future"
+    },
+    {
+      "name": "TechSavvy Innovations",
+      "address": "456 Silicon St, Johannesburg, SA",
+      "phone": "+27 11 678 9012",
+      "website": "https://www.techsavvy.co.za",
+      "image": "techsavvy.png",
+      "membership_level": 2,
+      "industry": "Software Development",
+      "established": 2010,
+      "tagline": "Innovating Tomorrow, Today"
+    },
+    {
+      "name": "Sunshine Farms",
+      "address": "789 Harvest Road, Durban, SA",
+      "phone": "+27 31 234 5678",
+      "website": "https://www.sunshinefarms.co.za",
+      "image": "sunshinefarms.png",
+      "membership_level": 1,
+      "industry": "Agriculture",
+      "established": 1998,
+      "tagline": "Freshness You Can Trust"
+    },
+    {
+      "name": "HealthFirst Clinics",
+      "address": "321 Wellness Blvd, Pretoria, SA",
+      "phone": "+27 12 345 6789",
+      "website": "https://www.healthfirst.co.za",
+      "image": "healthfirst.png",
+      "membership_level": 3,
+      "industry": "Healthcare",
+      "established": 2012,
+      "tagline": "Your Health, Our Priority"
+    },
+    {
+      "name": "BuildRight Construction",
+      "address": "159 Concrete Ln, Bloemfontein, SA",
+      "phone": "+27 51 789 4561",
+      "website": "https://www.buildright.co.za",
+      "image": "buildright.png",
+      "membership_level": 2,
+      "industry": "Construction",
+      "established": 2003,
+      "tagline": "Building Dreams, One Brick at a Time"
+    },
+    {
+      "name": "FinanceHub",
+      "address": "753 Money St, Sandton, SA",
+      "phone": "+27 10 123 9999",
+      "website": "https://www.financehub.co.za",
+      "image": "financehub.png",
+      "membership_level": 1,
+      "industry": "Financial Services",
+      "established": 2015,
+      "tagline": "Smart Finance, Secure Future"
+    },
+    {
+      "name": "TasteBuds Catering",
+      "address": "963 Foodie Ave, Port Elizabeth, SA",
+      "phone": "+27 41 555 8888",
+      "website": "https://www.tastebudscatering.co.za",
+      "image": "tastebuds.png",
+      "membership_level": 3,
+      "industry": "Food & Hospitality",
+      "established": 2008,
+      "tagline": "Where Every Bite Tells a Story"
+    }
+  ]
+  
