@@ -98,7 +98,6 @@ header {
     background-color: #94D2BD;
 }
 
-
 .nav-menu {
     justify-items: center;
     transition: left 0.3s ease-in-out;
@@ -239,11 +238,11 @@ section img {
 .bottom-card-bottom div h2 {
     text-align: center;
 }
-
+/* 
 .business-card {
     display: grid;
     grid-template-rows: 60px 1fr;
-}
+} */
 
 .bizcard-top p {
     font-size: xx-small;
@@ -251,8 +250,14 @@ section img {
 }
 
 .bizcard-top {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     border-bottom: 1px solid var(--footer-text);
+}
+
+.bizcard-top h2 {
+    border: none;
 }
 
 .bottom-card-bottom {
@@ -270,6 +275,19 @@ section img {
 
 .bottom-card-bottom .business-info .tag{
     font-size: x-small;
+}
+
+/*Toggle Buttons*/
+.grid-btn, .list-btn {
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+}
+
+.toggle-views img {
+    width: 20px;
+    height: auto;
 }
 
 /*Footer Styling*/
@@ -336,6 +354,11 @@ ul li a, ul li {
     cursor: pointer;
 }
 
+.wayfinding.active {
+    color: var(--primary-text);
+}
+
+
 .light-modes {
     right: 100px;
     top: 40px;
@@ -392,7 +415,6 @@ section img {
     gap: 10px;
 }
 
-
 .bottom-card-bottom .business-logo {
     background-color: rgba(0, 70, 0, 0.3);
 }
@@ -400,6 +422,49 @@ section img {
 .bottom-card-bottom .business-info {
     font-size: x-small;
 }
+
+/*List view*/
+
+.bottom-card-container  {
+    display: grid;
+}
+
+.bottom-card-container.active  {
+    display: block;
+}
+
+table{
+    width: 100%;
+    /* border-top: 1px solid var(--primary-bg); */
+}
+
+table.active {
+    display: none;
+}
+
+th, td{
+    padding: 15px;
+    text-align: left;
+    font-size: small;
+    border-bottom: 1px solid #ddd;
+
+    word-wrap: break-word;  
+    white-space: normal;    
+    max-width: 100px;       
+    overflow-wrap: break-word;
+}
+
+table, tr , td {
+    border-collapse: collapse;
+}
+
+tr:nth-child(odd) {
+    background-color: var(--accent-bg);
+}
+
+tr:nth-child(even) {
+    background-color: var(--button-text) !important; 
+} 
 
 /*Footer Styling*/
 
