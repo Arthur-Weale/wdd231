@@ -28,6 +28,38 @@ body {
     min-height: 100vh;
 }
 
+/*hamburger menu*/
+.hamburger {
+    /* display: block; */
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    z-index: 150;
+}
+
+.bar {
+    margin: 5px auto;
+    width: 25px;
+    height: 3px;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--accent-text);
+}
+
+.hamburger.active .bar:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 /*Header and Nav*/
 
 header img {
@@ -37,29 +69,290 @@ header img {
 
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
     background-color: var(--primary-bg);
+    width: 100%;
 }
 
 .nav-menu ul {
-    display: flex;
+    display: none;
+    flex-direction: column;
     gap: 20px;
     justify-content: space-around;
     padding: 10px;
-    width: 600px;
+} 
+
+.nav-menu ul.active {
+    display: flex;
+    left: 0;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    top: 100px;
+    background-color: #94D2BD;
+}
+
+
+.nav-menu {
+    justify-items: center;
+    transition: left 0.3s ease-in-out;
+    left: -100%;
+} 
+
+ul li a, ul li {
+    text-decoration: none;
+    list-style: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+} 
+
+ul li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+ul li:hover{
+    background-color: black;
+    color: var(--primary-bg);
+    
+    border-radius: 5px;
+}
+
+.light-modes {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: flex; /* Use flexbox for two equal halves */
+    border: 1px solid var(--accent-text);
+    width: 25px; 
+    height: 25px; 
+    border-radius: 50%; /* Make it a perfect circle */
+    overflow: hidden; /* Ensure no corners stick out */
+}
+
+.light-mode1,
+.light-mode2 {
+    flex: 1; /* Each half takes 50% width */
+    height: 100%; /* Full height */
+}
+
+.light-mode1 {
+    background-color: var(--accent-text);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.light-mode2 {
+    background-color: white; /* Adjust this to match the light mode color */
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+/*Hero Image*/
+
+section a.active {
+    display: block;
+}
+
+section a {
+    display: none;
+    position: absolute;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: var(--button-bg);
+    border-radius: 10px;
+    right: 25px;
+    top: 500px;
+    color: var(--button-text);
+} 
+
+section {
+    display: flex;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+}
+
+section img {
+    max-width: 100%;
+    height: 200px;
+}
+
+/*Card main menu section*/
+
+.maincard-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.top-card-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.bottom-card-container {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.event-card ,.weather-card, .forecast-card {
+    display: grid;
+    border: 1px solid var(--footer-text);
+    grid-template-rows: 40px 1fr;
+}
+
+.business-card {
+    display: grid;
+    border: 1px solid var(--footer-text);
+    border-radius: 10px;
+}
+
+.event-card h3, .weather-card h3 , .forecast-card h3 {
+    padding: 5px;
+    background-color: var(--accent-bg);
+}
+
+.top-card-container h3 {
+    border-bottom: 1px solid gray ;
+}
+
+.bottom-card-bottom div h2 {
+    text-align: center;
+}
+
+.business-card {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+}
+
+.bizcard-top p {
+    font-size: xx-small;
+    text-align: center;
+}
+
+.bizcard-top {
+    text-align: center;
+    border-bottom: 1px solid var(--footer-text);
+}
+
+.bottom-card-bottom {
+    min-height: 120px;
+    padding: 10px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 2fr;
+    border: blue;
+}
+
+.bottom-card-bottom .business-logo {
+    background-color: rgba(0, 70, 0, 0.3);
+}
+
+.bottom-card-bottom .business-info .tag{
+    font-size: x-small;
+}
+
+/*Footer Styling*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background: var(--footer-bg);
+    justify-content: space-around;
+    align-items: center;
+    color: var(--footer-text);
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    gap: 5px;
+}
+
+
+@media screen and (min-width: 768px) {
+    
+/*hamburger menu*/
+.hamburger {
+    display: none;
+}
+
+/*Header and Nav*/
+
+header img {
+    width: 150px;
+    height: auto;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
+.nav-menu ul {
+    display: flex !important;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    background: none;
 }
 
 .nav-menu {
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ul li a, ul li {
     text-decoration: none;
     list-style: none;
     color: var(--primary-text);
+    cursor: pointer;
+}
+
+.light-modes {
+    right: 100px;
+    top: 40px;
 }
 
 /*Hero Image*/
+section a {
+    display: block;
+    position: absolute;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: var(--button-bg);
+    border-radius: 10px;
+    right: 150px;
+    top: 600px;
+    color: var(--button-text);
+}
 
 section {
     display: flex;
@@ -79,9 +372,8 @@ section img {
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
-    gap: 40px;
+    gap: 20px;
     padding:10px 50px;
-    border: 1px solid black;
 }
 
 .top-card-container {
@@ -89,64 +381,31 @@ section img {
     height: 250px;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: none;
     gap: 10px;
 }
 
 .bottom-card-container {
     width: 100%;
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: none;
     gap: 10px;
-    height: 300px;
-}
-
-.event-card ,.weather-card, .forecast-card {
-    display: grid;
-    border: 1px solid var(--footer-text);
-}
-
-.business-card1, .business-card2, .business-card3 {
-    display: grid;
-    border: 1px solid var(--footer-text);
-    border-radius: 10px;
-}
-
-/* .event-card div, .weather-card div , .forecast-card div, .bottom-card-bottom, .bottom-card-bottom, .bottom-card-bottom {
-    /* height: 225px; */
-
-.event-card h3, .weather-card h3 , .forecast-card h3 {
-    height: 40px;
-    padding: 5px;
-    background-color: var(--accent-bg);
-}
-
-.top-card-container h3 {
-    border-bottom: 1px solid gray ;
 }
 
 
-
-.bottom-card-bottom div h2 {
-    text-align: center;
+.bottom-card-bottom .business-logo {
+    background-color: rgba(0, 70, 0, 0.3);
 }
 
-.bizcard-top {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 60px;
-    border-bottom: 1px solid var(--footer-text);
-}
-
-.bizcard-top p {
-    font-size: xx-small;
+.bottom-card-bottom .business-info {
+    font-size: x-small;
 }
 
 /*Footer Styling*/
 
 footer {
-    display: flex;
-    height: 130px;
+    flex-direction: row;
+    height: 150px;
     background: var(--footer-bg);
     justify-content: space-around;
     align-items: center;
@@ -158,4 +417,5 @@ footer .social-icons {
     justify-content: space-around;
     height: 50px;
     gap: 5px;
+}
 }
