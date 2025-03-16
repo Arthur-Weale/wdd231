@@ -16,6 +16,13 @@ hamburgerMenu.addEventListener("click", () => {
     ctaBtn.classList.toggle("active");
 });
 
+
+//To be fixed.........
+const wayFinding = document.querySelector(".wayfinding");
+wayFinding.addEventListener("click", () => {
+    wayFinding.classList.toggle("wayfinding.active");
+})
+
 const gridBtn = document.querySelector(".grid-btn");
 const listBtn = document.querySelector(".list-btn");
 
@@ -120,8 +127,19 @@ async function getData() {
     const response = await data.json();
     response  .forEach((company) => {
         console.log(company.name);
-        //member(company);
-        populateTable(company)
+        //populateTable(company);
+        //member(company); 
+
+        gridBtn.addEventListener("click", () => {
+            member(company);
+            gridBtn.classList.toggle("table.active");
+        })
+
+        listBtn.addEventListener("click", () => {
+            populateTable(company);
+            listBtn.classList.remove("bottom-card-container.active ");
+            gridBtn.classList.remove("table.active");
+        })
     });
     console.table(response.name);
     
