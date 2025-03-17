@@ -387,6 +387,9 @@ section a {
 .first {
     display: none;
 }
+main h1 {
+    display: none;
+}
 
 section {
     display: flex;
