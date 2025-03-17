@@ -25,6 +25,16 @@ wayFinding.addEventListener("click", () => {
 
 const gridBtn = document.querySelector(".grid-btn");
 const listBtn = document.querySelector(".list-btn");
+const container = document.querySelector(".bottom-card-container");
+
+
+gridBtn.addEventListener("click", () => {
+    container.classList.remove("list-view"); // Switch to grid
+});
+
+listBtn.addEventListener("click", () => {
+    container.classList.add("list-view"); // Switch to list
+});
 
 function member(memberCompany){
     const businessCard = document.createElement("div"); //set attribute class: business-card
@@ -74,7 +84,7 @@ function member(memberCompany){
     businessCard.appendChild(businessCardTop);
     businessCard.appendChild(bottomBottomCard);
 
-    // Finally, append the business card to the container in your HTML (e.g., a div with the class "bottom-card-container")
+    
     document.querySelector(".bottom-card-container").appendChild(businessCard);
 }
 
@@ -101,12 +111,6 @@ function populateTable(item){
     phoneCell.textContent = item.phone;
     websiteCell.textContent = item.website;
 
-    // if (index % 2 == 0) {
-    //     tableRow.style.backgroundColor= "#94D2BD";
-    // } else {
-    //     tableRow.style.backgroundColor="#ffffff";
-    // }
-
      // Append cells to row
     tableRow.appendChild(businessNameCell);
     tableRow.appendChild(taglineCell);
@@ -127,22 +131,49 @@ async function getData() {
     const response = await data.json();
     response  .forEach((company) => {
         console.log(company.name);
-        //populateTable(company);
-        //member(company); 
 
-        gridBtn.addEventListener("click", () => {
-            member(company);
-            gridBtn.classList.toggle("table.active");
-        })
+        function displayGridView() {
+            container.innerHTML = ""; // Clear previous content
+            response.forEach(member);
+            gridBtn.classList.add("bottom-card-container.active");
+            listBtn.classList.remove("active");
+        }
 
-        listBtn.addEventListener("click", () => {
-            populateTable(company);
-            listBtn.classList.remove("bottom-card-container.active ");
-            gridBtn.classList.remove("table.active");
-        })
+        function displayListView() {
+            container.innerHTML = ""; // Clear previous content
+            response.forEach(populateTable);
+            listBtn.classList.add("active");
+            gridBtn.classList.remove("active");
+        }
+
+        // Assign event listeners once
+        gridBtn.addEventListener("click", displayGridView);
+        listBtn.addEventListener("click", displayListView);
     });
-    console.table(response.name);
-    
+
 }
 
 getData();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".wayfinding");
+
+    // Function to set active link
+    function setActiveLink() {
+        navLinks.forEach(link => link.classList.remove("active"));
+        this.classList.add("active");
+    }
+
+    // Attach event listeners
+    navLinks.forEach(link => {
+        link.addEventListener("click", setActiveLink);
+    });
+
+    // Set active link based on URL
+    const currentPage = window.location.pathname;
+    navLinks.forEach(link => {
+        if (link.textContent.trim().toLowerCase() === currentPage.replace("/", "").toLowerCase()) {
+            link.classList.add("active");
+        }
+    });
+});
