@@ -174,7 +174,7 @@ section a {
     border-radius: 10px;
     right: 25px;
     top: 500px;
-    color: var(--button-text);
+    color: black;
 } 
 
 section {
@@ -309,6 +309,13 @@ footer .social-icons {
     gap: 5px;
 }
 
+.wayfinding.active {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
 
 @media screen and (min-width: 768px) {
     
@@ -374,7 +381,11 @@ section a {
     border-radius: 10px;
     right: 150px;
     top: 600px;
-    color: var(--button-text);
+    color: var(--footer-bg);
+}
+
+.first {
+    display: none;
 }
 
 section {
@@ -425,11 +436,15 @@ section img {
 
 /*List view*/
 
-.bottom-card-container  {
+.bottom-card-container {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+    gap: 20px;
 }
 
-.bottom-card-container.active  {
+/* List View (Overrides Grid) */
+.bottom-card-container.list-view {
     display: block;
 }
 
