@@ -1,5 +1,90 @@
 
 
+const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const tomorrow = 1;
+const dayAfterTomorrow = 2;
+const date = new Date();
+let today = weekday[date.getDay()];
+let dayTomorrow = weekday[date.getDay() + 1];
+let dayAfter = weekday[date.getDay() + 2];
+console.log(today);
+console.log(dayTomorrow);
+console.log(dayAfter);
+
+//I know i could use only one api for everything...but my assignment is late.
+
+async function getForecastData (){
+    const forecastData = await fetch ('https://api.openweathermap.org/data/2.5/forecast?lat=-26.164990&lon=27.873624&appid=c07581890cc044439d9c42431c5b22d0&units=metric');
+    const forecastDataJson = await forecastData.json();
+    console.log(forecastDataJson);
+
+    const dailyTemps = {}; // Creating an empty object
+    let iconAppended = false;
+
+    forecastDataJson.list.forEach(weatherEntry => {
+        const date = weatherEntry.dt_txt.split(" ")[0];
+        const time = weatherEntry.dt_txt.split(" ")[1];
+
+        if (time === "12:00:00" && !iconAppended){
+            dailyTemps[date]= weatherEntry.main.temp;
+
+            const iconCode = weatherEntry.weather[0].icon;
+            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+            const imgElement = document.createElement("img");
+            imgElement.src = iconUrl;
+            imgElement.alt = "Weather Icon";
+            //.appendChild(imgElement);
+
+            const weatherIcon = document.querySelector(".weather-type-icon")
+            weatherIcon.appendChild(imgElement);
+
+            iconAppended = true;
+        }
+    });
+
+        
+        const todayDate = new Date().toISOString().split("T")[0];
+        const tomorrowDate = new Date(Date.now() + 86400000) .toISOString().split("T")[0];
+        const dayAfterDate = new Date(Date.now() + (86400000 * 2)) .toISOString().split("T")[0];
+
+        const forecastCardBottom = document.querySelector(".forecast-card-bottom");
+
+        const todayParagraphContainer = document.createElement("p");
+        const tomorrowParagraphContainer = document.createElement("p");
+        const dayAfterParagraphContainer = document.createElement("p");
+
+        //Create span unique for each data entry
+        const todaySpanContainer = document.createElement("span");
+        const tomorrowSpanContainer = document.createElement("span");
+        const dayAfterSpanContainer = document.createElement("span");
+
+
+        //First place into the span
+        todaySpanContainer.textContent = `Today: ${dailyTemps[todayDate]|| "N/A"}°C`;
+        tomorrowSpanContainer.textContent = `${dayTomorrow}: ${dailyTemps[tomorrowDate]|| "N/A"}°C`;
+        dayAfterSpanContainer.textContent = `${dayAfter}: ${dailyTemps[dayAfterDate]|| "N/A"}°C`;
+
+        //Place each span to the paragraph
+        todayParagraphContainer.appendChild(todaySpanContainer);
+        tomorrowParagraphContainer.appendChild(tomorrowSpanContainer);
+        dayAfterParagraphContainer.appendChild(dayAfterSpanContainer);
+
+        //Append each paragraph element to the forecast card bottom
+        forecastCardBottom.appendChild(todayParagraphContainer);
+        forecastCardBottom.appendChild(tomorrowParagraphContainer);
+        forecastCardBottom.appendChild(dayAfterParagraphContainer)
+
+        console.log(`${today}: ${dailyTemps[todayDate]}`);
+        console.log(dailyTemps[tomorrowDate]);
+        console.log(dailyTemps[dayAfterDate]);
+        console.log(`Today: ${todayDate}, Tomorrow: ${tomorrowDate}, Day After: ${dayAfterDate}`);
+}
+
+getForecastData();
+
+
 const hamburgerMenu = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu ul");
 const ctaBtn = document.querySelector(".btn");
@@ -130,7 +215,7 @@ async function getData() {
     const data =  await fetch('data/members.json');
     const response = await data.json();
     response  .forEach((company) => {
-        console.log(company.name);
+        //console.log(company.name);
 
         function displayGridView() {
             container.innerHTML = ""; // Clear previous content
@@ -150,7 +235,6 @@ async function getData() {
         gridBtn.addEventListener("click", displayGridView);
         listBtn.addEventListener("click", displayListView);
     });
-
 }
 
 getData();
@@ -177,3 +261,49 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+
+async function getWeatherData (){
+    const weatherData = await fetch ('https://api.openweathermap.org/data/2.5/weather?lat=-26.164990&lon=27.873624&appid=c07581890cc044439d9c42431c5b22d0&units=metric');
+    const weatherDataJson = await weatherData.json();
+    //console.log(weatherDataJson);
+    populateWeatherCard (weatherDataJson)
+}
+
+getWeatherData();
+
+
+function populateWeatherCard (weatherDataJson){
+    const weatherInfor = document.querySelector(".weather-infor");
+    const containerParagraph = document.createElement("p");
+
+    const tempPara = document.createElement("p");
+    const cloudTypePara = document.createElement("p");
+    const highPara = document.createElement("p");
+    const lowPara = document.createElement("p");
+
+
+    const tempSpan = document.createElement("span");
+    tempSpan.textContent = `${weatherDataJson.main.temp}°C`;
+    const cloudTypeSpan = document.createElement("span");
+    cloudTypeSpan.textContent = weatherDataJson.weather[0].description;
+    const highSpan = document.createElement("span");
+    highSpan.textContent = `High: ${weatherDataJson.main.temp_max}°C`;
+    const lowSpan = document.createElement("span")
+    lowSpan.textContent = `low: ${weatherDataJson.main.temp_min}°C`
+    
+    tempPara.appendChild(tempSpan);
+    cloudTypePara.appendChild(cloudTypeSpan);
+    highPara.appendChild(highSpan);
+    lowPara.appendChild(lowSpan);
+
+
+    weatherInfor.appendChild(tempPara);
+    weatherInfor.appendChild(cloudTypePara);
+    weatherInfor.appendChild(highPara);
+    weatherInfor.append(lowPara);
+}
+
+populateWeatherCard();
