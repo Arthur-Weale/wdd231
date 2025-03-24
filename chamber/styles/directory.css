@@ -65,6 +65,7 @@ body {
 header img {
     width: 150px;
     height: auto;
+    object-fit: cover;
 }
 
 header {
@@ -186,6 +187,7 @@ section {
 section img {
     max-width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 
 /*Card main menu section*/
@@ -207,7 +209,7 @@ section img {
     gap: 10px;
 }
 
-.bottom-card-container {
+.bottom-card-container, .home-bottom-card-container {
     width: 100%;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -238,11 +240,6 @@ section img {
 .bottom-card-bottom div h2 {
     text-align: center;
 }
-/* 
-.business-card {
-    display: grid;
-    grid-template-rows: 60px 1fr;
-} */
 
 .bizcard-top p {
     font-size: xx-small;
@@ -316,6 +313,40 @@ footer .social-icons {
     border-bottom: 2px solid black;
 }
 
+/* dynamic weather updates */
+
+.weather-type-icon img {
+    width: 60px;
+    height: auto;
+}
+
+.weather-infor {
+    flex: 1;
+    padding: 20px;
+}
+
+.weather-card-bottom {
+    display: flex;
+}
+
+.forecast-card-bottom {
+    padding: 20px;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* dynamic weather updates end */
+
+.first {
+    display: none;
+}
+
+main h1 {
+    display: none;
+}
+
 
 @media screen and (min-width: 768px) {
     
@@ -329,6 +360,7 @@ footer .social-icons {
 header img {
     width: 150px;
     height: auto;
+    object-fit: cover;
 }
 
 header {
@@ -387,6 +419,7 @@ section a {
 .first {
     display: none;
 }
+
 main h1 {
     display: none;
 }
@@ -400,6 +433,7 @@ section {
 section img {
     max-width: 100%;
     height: 600px;
+    object-fit: cover;
 }
 
 /*Card main menu section*/
@@ -413,6 +447,7 @@ section img {
     padding:10px 50px;
 }
 
+
 .top-card-container {
     width: 100%;
     height: 250px;
@@ -422,24 +457,24 @@ section img {
     gap: 10px;
 }
 
-.bottom-card-container {
+.bottom-card-container ,.home-bottom-card-container{
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: none;
     gap: 10px;
 }
 
-.bottom-card-bottom .business-logo {
+.bottom-card-bottom .business-logo, .home-bottom-card-container .business-logo {
     background-color: rgba(0, 70, 0, 0.3);
 }
 
-.bottom-card-bottom .business-info {
+.bottom-card-bottom .business-info , .home-bottom-card-container .business-info{
     font-size: x-small;
 }
 
 /*List view*/
 
-.bottom-card-container {
+.bottom-card-container, .home-bottom-card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
@@ -447,7 +482,7 @@ section img {
 }
 
 /* List View (Overrides Grid) */
-.bottom-card-container.list-view {
+.bottom-card-container.list-view, .home-bottom-card-container.list-view {
     display: block;
 }
 
