@@ -6,7 +6,7 @@
       "email": "newwayevo@buds.com",
       "website": "https://www.ecosolutions.co.za",
       "image": "ecosolutions.png",
-      "membership_level": 3,
+      "membership_level": "gold",
       "industry": "Environmental Consulting",
       "established": 2005,
       "tagline": "Sustainable Solutions for a Greener Future"
@@ -18,7 +18,7 @@
       "email": "techcat@buds.com",
       "website": "https://www.techy.co.za",
       "image": "techsavvy.png",
-      "membership_level": 2,
+      "membership_level": "silver",
       "industry": "Software Development",
       "established": 2010,
       "tagline": "Innovating Tomorrow, Today"
@@ -30,7 +30,7 @@
       "email": "shiningfarmas@buds.com",
       "website": "https://www.sunfarms.co.za",
       "image": "sunshinefarms.png",
-      "membership_level": 1,
+      "membership_level": "bronze",
       "industry": "Agriculture",
       "established": 1998,
       "tagline": "Freshness You Can Trust"
@@ -42,7 +42,7 @@
       "email": "firsthealth@nics.com",
       "website": "https://www.health.co.za",
       "image": "healthfirst.png",
-      "membership_level": 3,
+      "membership_level": "gold",
       "industry": "Healthcare",
       "established": 2012,
       "tagline": "Your Health, Our Priority"
@@ -54,7 +54,7 @@
       "email": "rightbuild@cons.com",
       "website": "https://www.buildright.co.za",
       "image": "buildright.png",
-      "membership_level": 2,
+      "membership_level": "silver",
       "industry": "Construction",
       "established": 2003,
       "tagline": "Building Dreams, One Brick at a Time"
@@ -66,7 +66,7 @@
       "email": "finance@huds.com",
       "website": "https://www.financehub.co.za",
       "image": "financehub.png",
-      "membership_level": 1,
+      "membership_level": "bronze",
       "industry": "Financial Services",
       "established": 2015,
       "tagline": "Smart Finance, Secure Future"
@@ -78,7 +78,7 @@
       "email": "tastecat@buds.com",
       "website": "https://www.tastebud.co.za",
       "image": "tastebuds.png",
-      "membership_level": 3,
+      "membership_level": "gold",
       "industry": "Food & Hospitality",
       "established": 2008,
       "tagline": "Where Every Bite Tells a Story"
