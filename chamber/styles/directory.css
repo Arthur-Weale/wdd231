@@ -126,7 +126,6 @@ ul li {
 ul li:hover{
     background-color: black;
     color: var(--primary-bg);
-    
     border-radius: 5px;
 }
 
@@ -162,8 +161,11 @@ ul li:hover{
 
 /*Hero Image*/
 
-section a.active {
+section a.active1 {
     display: block;
+    position: absolute;
+    right: 25px;
+    top: 500px;
 }
 
 section a {
@@ -175,6 +177,22 @@ section a {
     border-radius: 10px;
     right: 25px;
     top: 500px;
+    color: black;
+} 
+
+.btn.active {
+    display: none;
+}
+
+.btn {
+    display: block;
+    position: absolute;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: var(--button-bg);
+    border-radius: 10px;
+    right: 25px;
+    top: 245px;
     color: black;
 } 
 
@@ -411,8 +429,8 @@ section a {
     padding: 10px 15px;
     background-color: var(--button-bg);
     border-radius: 10px;
-    right: 150px;
-    top: 600px;
+    right: 150px !important;
+    top: 600px !important;
     color: var(--footer-bg);
 }
 

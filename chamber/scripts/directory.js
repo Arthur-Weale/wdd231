@@ -8,16 +8,16 @@ const date = new Date();
 let today = weekday[date.getDay()];
 let dayTomorrow = weekday[date.getDay() + 1];
 let dayAfter = weekday[date.getDay() + 2];
-console.log(today);
-console.log(dayTomorrow);
-console.log(dayAfter);
+// console.log(today);
+// console.log(dayTomorrow);
+// console.log(dayAfter);
 
 //I know i could use only one api for everything...but my assignment is late.
 
 async function getForecastData (){
     const forecastData = await fetch ('https://api.openweathermap.org/data/2.5/forecast?lat=-26.164990&lon=27.873624&appid=c07581890cc044439d9c42431c5b22d0&units=metric');
     const forecastDataJson = await forecastData.json();
-    console.log(forecastDataJson);
+    //console.log(forecastDataJson);
 
     const dailyTemps = {}; // Creating an empty object
     let iconAppended = false;
@@ -26,22 +26,45 @@ async function getForecastData (){
         const date = weatherEntry.dt_txt.split(" ")[0];
         const time = weatherEntry.dt_txt.split(" ")[1];
 
-        if (time === "12:00:00" && !iconAppended){
-            dailyTemps[date]= weatherEntry.main.temp;
+        // if (time === "12:00:00" && !iconAppended){
+        //     dailyTemps[date]= weatherEntry.main.temp;
 
-            const iconCode = weatherEntry.weather[0].icon;
-            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        //     const iconCode = weatherEntry.weather[0].icon;
+        //     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
-            const imgElement = document.createElement("img");
-            imgElement.src = iconUrl;
-            imgElement.alt = "Weather Icon";
-            //.appendChild(imgElement);
+        //     const imgElement = document.createElement("img");
+        //     imgElement.src = iconUrl;
+        //     imgElement.alt = "Weather Icon";
+        //     //.appendChild(imgElement);
 
-            const weatherIcon = document.querySelector(".weather-type-icon")
-            weatherIcon.appendChild(imgElement);
+        //     const weatherIcon = document.querySelector(".weather-type-icon")
+        //     weatherIcon.appendChild(imgElement);
 
-            iconAppended = true;
+        //     iconAppended = true;
+        // }
+
+        if (time === "00:00:00" || time === "03:00:00" || time === "06:00:00" || 
+            time === "09:00:00" || time === "12:00:00" || time === "15:00:00" || 
+            time === "18:00:00" || time === "21:00:00") {
+            dailyTemps[date] = weatherEntry.main.temp;
+        
+            if (!iconAppended) { // Append the icon only once
+                const iconCode = weatherEntry.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        
+                const imgElement = document.createElement("img");
+                imgElement.src = iconUrl;
+                imgElement.alt = "Weather Icon";
+        
+                const weatherIcon = document.querySelector(".weather-type-icon");
+                weatherIcon.appendChild(imgElement);
+        
+                iconAppended = true;
+            }
         }
+        
+
+        console.log(dailyTemps)
     });
 
         
@@ -79,7 +102,7 @@ async function getForecastData (){
         console.log(`${today}: ${dailyTemps[todayDate]}`);
         console.log(dailyTemps[tomorrowDate]);
         console.log(dailyTemps[dayAfterDate]);
-        console.log(`Today: ${todayDate}, Tomorrow: ${tomorrowDate}, Day After: ${dayAfterDate}`);
+        //console.log(`Today: ${todayDate}, Tomorrow: ${tomorrowDate}, Day After: ${dayAfterDate}`);
 }
 
 getForecastData();
@@ -98,7 +121,7 @@ dateMod.textContent = `Last Modified ${dateLastModified}`;
 hamburgerMenu.addEventListener("click", () => {
     hamburgerMenu.classList.toggle("active");
     navMenu.classList.toggle("active");
-    ctaBtn.classList.toggle("active");
+    ctaBtn.classList.toggle("active1");
 });
 
 
