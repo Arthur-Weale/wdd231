@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+:root {
+    /* Background and Text Colors (AAA Compliant) */
+    --primary-bg: #E0E1DD; /* Light Gray */
+    --primary-text: #042A2B; /* Dark Teal */
+
+    --footer-bg: #0A1128; /* Deep Navy */
+    --footer-text: #E0E1DD; /* Light Gray */
+
+    --secondary-bg: #005F73; /* Deep Cyan */
+    --secondary-text: #FAFAFA; /* Off White */
+
+    --accent-bg: #94D2BD; /* Soft Mint Green */
+    --accent-text: #1B1B1B; /* Almost Black */
+
+    --button-bg: #EE9B00; /* Warm Gold */
+    --button-text: #FFFFFF; /* White */
+}
+
+
+body {
+    min-height: 100vh;
+}
+
+/*hamburger menu*/
+.hamburger {
+    /* display: block; */
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    z-index: 150;
+}
+
+.bar {
+    margin: 5px auto;
+    width: 25px;
+    height: 3px;
+    display: block;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--accent-text);
+}
+
+.hamburger.active .bar:nth-child(2){
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/*Header and Nav*/
+
+header img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--primary-bg);
+    width: 100%;
+}
+
+.nav-menu ul {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 10px;
+} 
+
+.nav-menu ul.active {
+    display: flex;
+    left: 0;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+    top: 100px;
+    background-color: #94D2BD;
+}
+
+.nav-menu {
+    justify-items: center;
+    transition: left 0.3s ease-in-out;
+    left: -100%;
+} 
+
+ul li a, ul li {
+    text-decoration: none;
+    list-style: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+} 
+
+ul li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+ul li:hover{
+    background-color: black;
+    color: var(--primary-bg);
+    border-radius: 5px;
+}
+
+.light-modes {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    display: flex; /* Use flexbox for two equal halves */
+    border: 1px solid var(--accent-text);
+    width: 25px; 
+    height: 25px; 
+    border-radius: 50%; /* Make it a perfect circle */
+    overflow: hidden; /* Ensure no corners stick out */
+}
+
+.light-mode1,
+.light-mode2 {
+    flex: 1; /* Each half takes 50% width */
+    height: 100%; /* Full height */
+}
+
+.light-mode1 {
+    background-color: var(--accent-text);
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.light-mode2 {
+    background-color: white; /* Adjust this to match the light mode color */
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+/* Member application container styling start */
+section h2 {
+    padding-left: 240px;
+}
+
+
+.join-main-container {
+    display: flex;
+    flex-direction: column;
+    /* padding: px; */
+    justify-content: center;
+    gap: 40px;
+    padding: 10px;
+}
+
+.main-form-container {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Creates depth */
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 300px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+label {
+    display: block; /* Makes the label to appear on its own line */
+    margin-bottom: 5px; /* Adds space between label and input */
+}
+
+textarea {
+    width: 250px;
+    height: 90px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+input{
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+.levels-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Creates depth */
+    width: 300px;
+    padding: 10px;
+    gap: 10px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: var(--button-bg); /* Primary blue color */
+    color: var(--accent-text); /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px; /* Top-Bottom | Left-Right */
+    width: 250px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+button:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active (when clicking) */
+button:active {
+    background-color: #004494; /* Even darker blue */
+    transform: scale(0.98); /* Slight press effect */
+}
+
+/* Disabled button */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* Right Card */
+.membership-card {
+    height: 200px;
+    border: none;
+    background-color: var(--accent-bg);
+    border-radius: 5px;
+    text-align: center;
+    align-content: center;
+    opacity: 0;
+    transform: translateY(50px); /* Move down initially */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+select{
+    width: 250px;
+}
+
+
+/* Member application container styling end */
+
+/* Modal Styling Start */
+#pricing-modal {
+    background-color: var(--accent-bg);
+    /* display: flex; */
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    justify-self: center;
+    margin-top: 150px;
+}
+
+#list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#list-container li::before{
+    content: "✔️";  
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+::backdrop{
+    background: rgba(255, 255, 255, 0.2); /* White with transparency */
+    backdrop-filter: blur(10px); /* Blurs content behind */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+    padding: 20px;
+    border-radius: 10px; /* Smooth edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#closeBtn {
+    display: block; /* Ensures it takes up the full width */
+    margin: 10px auto; /* Centers it horizontally */
+    padding: 8px 16px;
+    cursor: pointer;
+}
+/* Modal Styling End */
+
+/*Thank you Page*/
+.thank-you-page{
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: var(--accent-bg);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
+/*Footer Styling*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background: var(--footer-bg);
+    justify-content: space-around;
+    align-items: center;
+    color: var(--footer-text);
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    gap: 5px;
+}
+
+.wayfinding.active {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    
+/*hamburger menu*/
+.hamburger {
+    display: none;
+}
+
+/*Header and Nav*/
+
+header img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
+.nav-menu ul {
+    display: flex !important;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    top: 0;
+    flex-direction: row;
+    background: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li a, ul li {
+    text-decoration: none;
+    list-style: none;
+    color: var(--primary-text);
+    cursor: pointer;
+}
+
+.wayfinding.active {
+    color: var(--primary-text);
+}
+
+
+.light-modes {
+    right: 100px;
+    top: 40px;
+}
+
+/* Join Content Styling */
+.join-main-container {
+    flex-direction: row;
+} 
+
+.main-form-container {
+    width: 500px;
+} 
+
+input{
+    width: 470px;
+} 
+
+textarea {
+    width: 470px;
+}
+
+.levels-container {
+    width: 500px;
+} 
+
+select{
+    width: 470px;
+    height: 35px;
+    border-radius: 5px;
+} 
+
+/*Footer Styling*/
+
+footer {
+    flex-direction: row;
+    height: 150px;
+    background: var(--footer-bg);
+    justify-content: space-around;
+    align-items: center;
+    color: var(--footer-text);
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    gap: 5px;
+}
+}
