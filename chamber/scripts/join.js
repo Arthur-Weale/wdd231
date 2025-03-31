@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const goldCardBtn = document.querySelector(".gold");
     const closeCardBtn = document.querySelector("#closeBtn");
     const modalPopup = document.querySelector("#pricing-modal");
-
+    document.getElementById("time-stamp").value = new Date().toUTCString();
     // Modal content
     const membershipLevel = document.getElementById("membership-level-type");
     const cardContextPara = document.getElementById("type-context");
