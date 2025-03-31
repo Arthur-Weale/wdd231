@@ -1,15 +1,29 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-    
+// document.addEventListener("DOMContentLoaded", () => {
+//     const timeStamp = document.querySelector("#time-stamp");
+//     if (timeStamp) {
+//         timeStamp.value = new Date().toISOString();
+//     }
+// });
+const hamburgerMenu = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu ul");
+const ctaBtn = document.querySelector(".btn");
+const latestCurrentYear = document.querySelector(".currentYear");
+const dateLastModified = document.lastModified;
+
+latestCurrentYear.textContent = new Date().getFullYear();
+const dateMod = document.querySelector(".lastModified");
+dateMod.textContent = `Last Modified ${dateLastModified}`;
+
+hamburgerMenu.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    ctaBtn.classList.toggle("active1");
 });
+
 
 const uspData = new URLSearchParams(window.location.search);
 const modalContent = document.querySelector(".thank-you-page");
-
-
-const timeStamp = document.querySelector("#time-stamp");
-    
-    
 
 // Check each parameter value and log it
 console.log("First Name:", uspData.get("first"));
@@ -32,6 +46,7 @@ const phoneNumber = document.createElement("p");
 const organization = document.createElement("p");
 const membership = document.createElement("p");
 const thankYouMessage = document.createElement("p"); 
+const timeSubmit = document.createElement("p");
 
 fullName.textContent = `Thank you, ${uspData.get("first")} ${uspData.get("last")}! 🎉`;
 appreciationMsg.textContent = "We appreciate you taking the time to share your details with us.";
@@ -42,6 +57,7 @@ email.textContent = `Email: ${uspData.get("email")}`;
 phoneNumber.textContent = `Phone Number: ${uspData.get("phone")}`;
 organization.textContent = `Business Name: ${uspData.get("organization")}`;
 membership.textContent = `Membership Level: ${uspData.get("membership-level")}`;
+timeSubmit.textContent = `Submitted at: ${uspData.get("timestamp")}`;
 
     
 // Set the main thank you message text content
@@ -57,4 +73,5 @@ modalContent.appendChild(email);
 modalContent.appendChild(phoneNumber);
 modalContent.appendChild(organization);
 modalContent.appendChild(membership);
+modalContent.appendChild(timeSubmit);
 modalContent.appendChild(thankYouMessage); 
