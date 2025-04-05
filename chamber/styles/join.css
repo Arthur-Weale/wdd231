@@ -484,4 +484,85 @@ footer .social-icons {
     height: 50px;
     gap: 5px;
 }
+
+
+/*Discover page styling in desktop View*/
+
+.main-grid-container{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+    margin: 10px;
+}
+
+.main-card {
+    width: 100% !important;
+}
+
+img{
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+img:hover{
+    background-color: var(--accent-bg);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+#infor-image{
+    display: flex;
+}
+
+.dic-btn-container button {
+    width: 500px;
+}
+
+
+.cardh2{
+    padding: 10px;
+}
+}
+
+
+/*Discover page styling in Mobile View*/
+
+.main-grid-container{
+    display: grid;
+    grid-template-areas: 
+    "main-card";
+    margin: 10px auto;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 20px;
+}
+
+.main-card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* border: 1px solid black; */
+    width: 301px;
+    border:1px solid gray;
+    border-radius: 10px;
+    background-color: var(--footer-text);
+}
+
+#discover-info{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dic-btn-container{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dic-btn-container button {
+    border-radius: 30px;
+}
+
+.cardh2{
+    padding: 10px;
 }
