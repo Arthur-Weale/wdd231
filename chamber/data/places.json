@@ -1,0 +1,50 @@
+[
+    {
+    "name": "Nelson Mandela Bridge",
+    "address": "Bertha Street, Johannesburg, South Africa",
+    "description": "An iconic cable-stayed bridge that connects Braamfontein and Newtown, symbolizing unity in the city.",
+    "image": "images/mandela-bridge.webp"
+    },
+    {
+    "name": "Kruger National Park",
+    "address": "Kruger National Park, South Africa",
+    "description": "One of Africa's largest game reserves, home to diverse wildlife including the Big Five.",
+    "image": "images/kruger-park.webp"
+    },
+    {
+    "name": "Telkom Tower",
+    "address": "35 Goldreich Street, Hillbrow, Johannesburg, South Africa",
+    "description": "A landmark telecommunications tower that defines Johannesburg's skyline.",
+    "image": "images/telekom-tower1.webp"
+    },
+    {
+    "name": "Art City",
+    "address": "Northern Parkway & Gold Reef Road, Ormonde, Johannesburg, South Africa",
+    "description": "Home to the most stuning art and grafiti.",
+    "image": "images/art-city.webp"
+    },
+    {
+    "name": "Art Street",
+    "address": "11 Kotze Street, Braamfontein, Johannesburg, South Africa",
+    "description": "A historic site filled with a combination of art and fashion.",
+    "image": "images/art-street.webp"
+    },
+    {
+    "name": "Kruger Lodge",
+    "address": "Kruger National Park, South Africa",
+    "description": "Located at Krugerpark , this places has stuning sunsets and sunrises.",
+    "image": "images/krugerlodger.webp"
+    },
+    {
+    "name": "MTN Reef City",
+    "address": "MTN Reef City, Johannesburg, South Africa",
+    "description": "Home to car fanatics, you get a view mix of classic and modern car customs.",
+    "image": "images/mtn.webp"
+    },
+    {
+    "name": "Wits",
+    "address": "Parktown, Johannesburg, South Africa",
+    "description": "Get an entertaining view of the most prominent hip hop dancer in south africa.",
+    "image": "images/wits.webp"
+    }
+]
