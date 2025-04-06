@@ -488,6 +488,85 @@ footer .social-icons {
 
 /*Discover page styling in desktop View*/
 
+}
+
+
+/*Discover page styling in Mobile View*/
+
+.main-grid-container{
+    display: grid;
+    margin: 10px auto;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 20px;
+}
+
+.main-card {
+    display: grid;
+    align-content: center;
+    /* border: 1px solid black; */
+    width: 300px;
+    border:1px solid gray;
+    border-radius: 10px;
+    background-color: var(--footer-text);
+    overflow: hidden;
+    gap: 10px;
+    grid-template-areas: 
+    "header"
+    "image"
+    "paragraph"
+    "address"
+    "button";
+}
+
+.cardh2 {
+    grid-area: header;
+    margin: 1rem 10px;
+}
+
+#infor-image{
+    grid-area: image;
+}
+
+.place-para{
+    grid-area: paragraph;
+    padding: 10px;
+}
+
+.address{
+    grid-area: address;
+    padding: 10px;
+}
+
+.button-cont{
+    grid-area: button;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+/*Medium CSS*/
+
+@media only screen and (min-width: 641px) {
+    .main-card {
+
+        width: 100% !important;
+        gap: 10px;
+        grid-template-areas: 
+        "header header"
+        "image paragraph"
+        "image address"
+        "button button" !important;
+    }
+
+    .button-cont button{
+        width: 500px !important;
+        border-radius: 30px;
+    }
+}
+
+@media only screen and (min-width:1025px){
+    
 .main-grid-container{
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
@@ -496,73 +575,73 @@ footer .social-icons {
 
 .main-card {
     width: 100% !important;
+    gap: 10px;
+    grid-template-areas: 
+    "header header"
+    "image paragraph"
+    "image address"
+    "button button" !important;
 }
+
+
+.cardh2 {
+    grid-area: header;
+    margin: 1rem 10px;
+}
+
+#infor-image, .fig-image{
+    grid-area: image;
+    width: 300px;
+}
+
+.place-para{
+    grid-area: paragraph;
+    padding: 10px;
+}
+
+.address{
+    grid-area: address;
+    padding: 10px;
+}
+
+.button-cont{
+    grid-area: button;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.button-cont button{
+    width: 500px !important;
+    border-radius: 30px;
+}
+
 
 img{
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-img:hover{
-    background-color: var(--accent-bg);
+figure img:hover{
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
-
-#infor-image{
-    display: flex;
-}
-
-.dic-btn-container button {
-    width: 500px;
 }
 
 
-.cardh2{
-    padding: 10px;
-}
-}
-
-
-/*Discover page styling in Mobile View*/
-
-.main-grid-container{
-    display: grid;
-    grid-template-areas: 
-    "main-card";
+.notification-banner {
     margin: 10px auto;
-    justify-content: center;
-    /* border: 1px solid red; */
-    gap: 20px;
-}
-
-.main-card {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    /* border: 1px solid black; */
-    width: 301px;
-    border:1px solid gray;
     border-radius: 10px;
-    background-color: var(--footer-text);
-}
-
-#discover-info{
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    border: none;
+    transform: translateY(50px); /* Move down initially */
+    animation: fadeInUp 0.8s ease-out forwards;
+    text-align: center;
 }
 
-.dic-btn-container{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.notification-banner::backdrop{
+    display: none;
 }
 
-.dic-btn-container button {
-    border-radius: 30px;
-}
-
-.cardh2{
-    padding: 10px;
+.header-sec2{
+    text-align: center;
 }

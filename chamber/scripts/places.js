@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded",() => {
 
-    const placesData = async () => {
+    const placesData = async function (){
         const placesData = await fetch("data/places.json");
         console.log(placesData);
         const response = await placesData.json();
         response.forEach(place => {
-            console.log(place);
+            //console.log(place);
             populateCards(place);
         });
     }
@@ -16,14 +16,10 @@ document.addEventListener("DOMContentLoaded",() => {
 
     const populateCards = (place) => {
         const mainCard = document.createElement("div");
-        const inforImgContainer = document.createElement("div");
         const imageContainer = document.createElement("figure");
-        const infoContainer = document.createElement("div");
         const btnContainer = document.createElement("div");
 
         mainCard.setAttribute("class", "main-card");
-        inforImgContainer.setAttribute("id", "infor-image");
-        infoContainer.setAttribute("id", "discover-info");
         btnContainer.setAttribute("class", "dic-btn-container")
 
         const placeName = document.createElement("h2");
@@ -34,7 +30,13 @@ document.addEventListener("DOMContentLoaded",() => {
 
         placeName.setAttribute("class", "cardh2");
         image.setAttribute("loading", "lazy");
-
+        image.setAttribute("alt", "Image of the most fascinating part of Johannesburg");
+        image.setAttribute("width", "300");
+        image.setAttribute("height", "200");
+        placeAddress.setAttribute("class", "address");
+        placeInfor.setAttribute("class","place-para")
+        btnContainer.setAttribute("class", "button-cont")
+        imageContainer.setAttribute("class", "fig-image")
 
         placeName.textContent = place.name;
         image.src = place.image;
@@ -43,21 +45,20 @@ document.addEventListener("DOMContentLoaded",() => {
         learnMoreButton.textContent = "Learn More";
 
         imageContainer.append(image);
-        infoContainer.append(placeInfor);
-        infoContainer.append(placeAddress);
-
-        inforImgContainer.append(imageContainer)
-        inforImgContainer.append(infoContainer);
-
         btnContainer.append(learnMoreButton);
 
         mainCard.append(placeName);
-        mainCard.append(inforImgContainer);
+        mainCard.append(imageContainer);
+        mainCard.append(placeInfor);
+        mainCard.append(placeAddress);
         mainCard.append(btnContainer);
 
         mainGridContainer.append(mainCard);
     };
+
 })
+
+
 
 const hamburgerMenu = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu ul");
