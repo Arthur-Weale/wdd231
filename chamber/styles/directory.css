@@ -123,7 +123,17 @@ ul li {
 }
 
 
-ul li:hover{
+/*  */
+
+ul li:hover,
+ul li:hover a {
+    background-color: black;
+    color: var(--primary-bg) !important;
+    border-radius: 5px;
+}
+
+/* Active link styling */
+.nav-menu ul li a.active {
     background-color: black;
     color: var(--primary-bg);
     border-radius: 5px;
@@ -324,12 +334,11 @@ footer .social-icons {
     gap: 5px;
 }
 
-.wayfinding.active {
+/* .wayfinding.active {
     background-color: var(--primary-bg);
-    color: var(--primary-text);
     font-weight: bold;
     border-bottom: 2px solid black;
-}
+} */
 
 /* dynamic weather updates */
 

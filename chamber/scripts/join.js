@@ -83,6 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Get all navigation links
+const navLinks = document.querySelectorAll('.nav-menu ul li a');
+
+// Get the current page's URL
+const currentPage = window.location.pathname.split('/').pop();
+
+// Loop through each navigation link
+navLinks.forEach(link => {
+    // Check if the link's href matches the current page
+    if (link.getAttribute('href') === currentPage) {
+        // Add the 'active' class to the matching link
+        link.classList.add('active');
+    }
+});
+
+
 const hamburgerMenu = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu ul");
 const ctaBtn = document.querySelector(".btn");

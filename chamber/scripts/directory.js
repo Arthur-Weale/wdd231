@@ -126,10 +126,26 @@ hamburgerMenu.addEventListener("click", () => {
 
 
 //To be fixed.........
-const wayFinding = document.querySelector(".wayfinding");
-wayFinding.addEventListener("click", () => {
-    wayFinding.classList.toggle("wayfinding.active");
-})
+// const wayFinding = document.querySelector(".wayfinding");
+// wayFinding.addEventListener("click", () => {
+//     wayFinding.classList.toggle("active");
+//})
+
+// Get all navigation links
+const navLinks = document.querySelectorAll('.nav-menu ul li a');
+
+// Get the current page's URL
+const currentPage = window.location.pathname.split('/').pop();
+
+// Loop through each navigation link
+navLinks.forEach(link => {
+    // Check if the link's href matches the current page
+    if (link.getAttribute('href') === currentPage) {
+        // Add the 'active' class to the matching link
+        link.classList.add('active');
+    }
+});
+
 
 const gridBtn = document.querySelector(".grid-btn");
 const listBtn = document.querySelector(".list-btn");

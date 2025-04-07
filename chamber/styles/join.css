@@ -123,11 +123,20 @@ ul li {
 }
 
 
-ul li:hover{
+ul li:hover,
+ul li:hover a {
+    background-color: black;
+    color: var(--primary-bg) !important;
+    border-radius: 5px;
+}
+
+/* Active link styling */
+.nav-menu ul li a.active {
     background-color: black;
     color: var(--primary-bg);
     border-radius: 5px;
 }
+
 
 .light-modes {
     position: absolute;
