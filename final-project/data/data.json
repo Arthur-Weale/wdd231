@@ -1,0 +1,37 @@
+{
+    "services": [
+      {
+        "id": "service1",
+        "name": "Website Development",
+        "desc": "From concept to launch, we create custom websites that are optimized for both performance and aesthetics.",
+        "moreInfo": "Our websites are designed to fit your brand, goals, and audience."
+      },
+      {
+        "id": "service2",
+        "name": "SEO Optimization",
+        "desc": "Boost your visibility and rank higher on search engines with our ethical SEO practices.",
+        "moreInfo": "We focus on organic strategies that deliver long-term results without compromising your brand."
+      },
+      {
+        "id": "service3",
+        "name": "Branding & Design",
+        "desc": "Let us help you create a visually appealing brand that resonates with your target audience.",
+        "moreInfo": "From logos to full branding packages, we ensure your brand stands out in a competitive market."
+      }
+    ],
+    "pricing": [
+      {
+        "service": "Website Development",
+        "price": "$2000"
+      },
+      {
+        "service": "SEO Optimization",
+        "price": "$1000"
+      },
+      {
+        "service": "Branding & Design",
+        "price": "$1500"
+      }
+    ]
+  }
+  

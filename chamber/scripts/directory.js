@@ -1,4 +1,10 @@
 
+populateWeatherCard();
+getForecastData();
+getWeatherData();
+
+
+
 
 const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -8,11 +14,7 @@ const date = new Date();
 let today = weekday[date.getDay()];
 let dayTomorrow = weekday[date.getDay() + 1];
 let dayAfter = weekday[date.getDay() + 2];
-// console.log(today);
-// console.log(dayTomorrow);
-// console.log(dayAfter);
 
-//I know i could use only one api for everything...but my assignment is late.
 
 async function getForecastData (){
     const forecastData = await fetch ('https://api.openweathermap.org/data/2.5/forecast?lat=-26.164990&lon=27.873624&appid=c07581890cc044439d9c42431c5b22d0&units=metric');
@@ -26,22 +28,6 @@ async function getForecastData (){
         const date = weatherEntry.dt_txt.split(" ")[0];
         const time = weatherEntry.dt_txt.split(" ")[1];
 
-        // if (time === "12:00:00" && !iconAppended){
-        //     dailyTemps[date]= weatherEntry.main.temp;
-
-        //     const iconCode = weatherEntry.weather[0].icon;
-        //     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
-        //     const imgElement = document.createElement("img");
-        //     imgElement.src = iconUrl;
-        //     imgElement.alt = "Weather Icon";
-        //     //.appendChild(imgElement);
-
-        //     const weatherIcon = document.querySelector(".weather-type-icon")
-        //     weatherIcon.appendChild(imgElement);
-
-        //     iconAppended = true;
-        // }
 
         if (time === "00:00:00" || time === "03:00:00" || time === "06:00:00" || 
             time === "09:00:00" || time === "12:00:00" || time === "15:00:00" || 
@@ -105,7 +91,7 @@ async function getForecastData (){
         //console.log(`Today: ${todayDate}, Tomorrow: ${tomorrowDate}, Day After: ${dayAfterDate}`);
 }
 
-getForecastData();
+
 
 
 const hamburgerMenu = document.querySelector(".hamburger");
@@ -125,11 +111,7 @@ hamburgerMenu.addEventListener("click", () => {
 });
 
 
-//To be fixed.........
-// const wayFinding = document.querySelector(".wayfinding");
-// wayFinding.addEventListener("click", () => {
-//     wayFinding.classList.toggle("active");
-//})
+
 
 // Get all navigation links
 const navLinks = document.querySelectorAll('.nav-menu ul li a');
@@ -311,7 +293,7 @@ async function getWeatherData (){
     populateWeatherCard (weatherDataJson)
 }
 
-getWeatherData();
+
 
 
 function populateWeatherCard (weatherDataJson){
@@ -326,6 +308,7 @@ function populateWeatherCard (weatherDataJson){
 
     const tempSpan = document.createElement("span");
     tempSpan.textContent = `${weatherDataJson.main.temp}°C`;
+    console.log(tempSpan);
     const cloudTypeSpan = document.createElement("span");
     cloudTypeSpan.textContent = weatherDataJson.weather[0].description;
     const highSpan = document.createElement("span");
@@ -345,4 +328,4 @@ function populateWeatherCard (weatherDataJson){
     weatherInfor.append(lowPara);
 }
 
-populateWeatherCard();
+
